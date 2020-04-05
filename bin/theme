@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $1 == "-l" ]
+then
+  exec ls -alt ~/pics/bg
+else
+  [ -f $HOME/pics/bg/"$1" ] && feh --bg-fill $HOME/pics/bg/"$1" && betterlockscreen -u $HOME/pics/bg/"$1"
+fi

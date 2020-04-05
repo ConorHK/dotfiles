@@ -1,0 +1,7 @@
+#!/bin/bash
+
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+[ "$capacity" -le 20 ] && [ "$status" = "Discharging" ] && warn = "Warning: "
+printf "%s\t%s%s%%\n" "$status" "$warn" "$capacity"

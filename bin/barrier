@@ -1,0 +1,18 @@
+#!/bin/bash
+file=/tmp/barrier_terminal_id
+hide() {
+  wid=`xdotool getactivewindow`
+  xdotool windowunmap $wid
+  echo $wid > $file
+}
+
+unhide() {
+  xdotool windowmap `cat $file`
+}
+
+case $1 in
+  "c") hide && exec barrierc -f --no-tray --name CKXPS --enable-crypto 192.168.0.35:24800 ;;
+  "quit") exec pkill barrier && unhide;;
+  "unhide") unhide ;;
+  *) echo "ERROR: Command not found" ;;
+esac
