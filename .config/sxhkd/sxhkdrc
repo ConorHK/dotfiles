@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	$TERMINAL
 
 # program launcher
 super + @space
@@ -119,6 +119,22 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#----- Media Keys -----#
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+  pulseaudio-ctl {up,down}
+
+XF86AudioMute
+  pulseaudio-ctl mute
+
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+  brightnessctl s 20%{+,-}
+
+XF86AudioPlay
+  playerctl play-pause
+
+{XF86AudioPrev, XF86AudioNext}
+playerctl {prev,next}
 
 #----- Application Specific -----#
 super + shift + f

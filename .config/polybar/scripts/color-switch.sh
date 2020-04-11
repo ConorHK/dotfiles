@@ -49,7 +49,7 @@ MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'Style :' \
 -location 1 \
 -columns 2 \
 -show-icons -icon-theme "Papirus" \
--font "Fantasque Sans Mono 10" \
+-font "JetBrains Mono Medium 11" \
 -color-enabled true \
 -color-window "$BACKGROUND,$BORDER,$SEPARATOR" \
 -color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
@@ -96,5 +96,5 @@ MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'Style :' \
 				*purple-dark) $SDIR/colors-dark.sh -purple ;;
 				*red-dark) $SDIR/colors-dark.sh -red ;;
 				*teal-dark) $SDIR/colors-dark.sh -teal ;;
-				*yellow-dark) $SDIR/colors-dark.sh -yellow				
+				*yellow-dark) $SDIR/colors-dark.sh -yellow
             esac

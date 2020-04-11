@@ -34,7 +34,7 @@ LIGHT_BLUE="#039be5"
 LIGHT_GREEN="#7cb342"
 
 # Launch Rofi
-MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System :' \
+MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System' \
 -hide-scrollbar true \
 -bw 0 \
 -lines 4 \

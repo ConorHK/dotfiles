@@ -1,2 +1,2 @@
-.config/zsh/.histfile
+.config/zsh/.*
 .local/share/z

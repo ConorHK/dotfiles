@@ -6,7 +6,7 @@ export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Default programs:
 export EDITOR="vim"
-export TERMINAL="urxvt"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export READER="zathura"
 

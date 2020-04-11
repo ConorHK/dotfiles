@@ -35,7 +35,7 @@ LIGHT_GREEN="#7cb342"
 
 # Launch Rofi
 rofi -no-lazy-grab -show drun \
--display-drun "Applications :" -drun-display-format "{name}" \
+-display-drun "Applications" -drun-display-format "{name}" \
 -hide-scrollbar true \
 -bw 0 \
 -lines 10 \
