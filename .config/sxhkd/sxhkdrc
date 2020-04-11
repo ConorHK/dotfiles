@@ -46,6 +46,10 @@ super + g
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
+# toggle polybar
+super + p
+  polybar-msg cmd toggle
+
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
@@ -134,7 +138,10 @@ XF86AudioPlay
   playerctl play-pause
 
 {XF86AudioPrev, XF86AudioNext}
-playerctl {prev,next}
+  playerctl {prev,next}
+
+XF86Search
+  search
 
 #----- Application Specific -----#
 super + shift + f
