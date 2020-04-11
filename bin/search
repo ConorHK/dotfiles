@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Rofi script
+
+MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'Search' \
+  -hide-scrollbar true \
+  -bw 0 \
+  -lines 0 \
+  -line-padding 0 \
+  -padding 0 \
+  -width 15 \
+  -columns 1\
+  -font "JetBrains Mono Medium 11")"
+
+$MENU | xargs -I{} xdg-open https://duckduckgo.com/search?q={}
