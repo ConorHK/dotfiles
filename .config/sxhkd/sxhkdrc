@@ -150,3 +150,6 @@ XF86Search
 #----- Application Specific -----#
 super + shift + f
 	$BROWSER
+
+Print
+  flameshot gui -p $HOME/pics/screenshots
