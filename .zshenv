@@ -1,3 +1,3 @@
 #!/bin/zsh
 #loads enviroment variables
-[ -f "$HOME/.config/env" ] && source "$HOME/.config/env"
+[ -f "$HOME/.config/zsh/env" ] && source "$HOME/.config/zsh/env"
