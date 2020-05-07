@@ -55,7 +55,7 @@ super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
 # Lock screen
-super + l
+super + x
   betterlockscreen -l
 
 #

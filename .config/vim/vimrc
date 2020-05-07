@@ -10,13 +10,13 @@ set viminfo+=n$XDG_DATA_HOME/vim/viminfo
   call plug#begin('$XDG_CACHE_HOME/.vim/plugged')
     Plug 'lervag/vimtex'
     Plug 'junegunn/goyo.vim'
-    Plug 'PotatoesMaster/i3-vim-syntax'
     Plug 'tpope/vim-commentary'
     Plug 'sbdchd/neoformat'
     Plug 'xuhdev/vim-latex-live-preview',{'for':'tex'}
     Plug 'junegunn/limelight.vim'
     Plug 'tomasiser/vim-code-dark'
     Plug 'takac/vim-hardtime'
+    Plug 'sirver/ultisnips'
   call plug#end()
 
 " encoding
@@ -51,6 +51,7 @@ set encoding=UTF-8
 " Spellcheck
   autocmd FileType text,markdown setlocal spell
   set spelllang=en_gb
+  set spellfile=$HOME/.config/vim/spell/en.utf-8.add
   inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 " Don't automaticall collapse markdown
   set conceallevel=0
@@ -154,3 +155,12 @@ let g:livepreview_previewer = 'zathura'
 
 " Hard-time
 "let g:hardtime_default_on = 1
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
+if has('fname_case')
+    let g:UltiSnipsSnippetDirectories = ["UltiSnips", "ultisnips"]
+endif

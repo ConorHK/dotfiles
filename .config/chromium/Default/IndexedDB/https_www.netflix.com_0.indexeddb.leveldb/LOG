@@ -1,0 +1,15 @@
+2020/04/26-23:16:21.492 3791 Reusing MANIFEST /home/conor/.config/chromium/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/04/26-23:16:21.492 3791 Recovering log #3
+2020/04/26-23:16:21.508 3791 Reusing old log /home/conor/.config/chromium/Default/IndexedDB/https_www.netflix.com_0.indexeddb.leveldb/000003.log 
+2020/04/26-23:36:25.682 3e4f Level-0 table #5: started
+2020/04/26-23:36:25.744 3e4f Level-0 table #5: 2918531 bytes OK
+2020/04/26-23:36:25.751 3e4f Delete type=0 #3
+2020/04/27-00:35:41.680 3e4f Level-0 table #7: started
+2020/04/27-00:35:41.744 3e4f Level-0 table #7: 2003358 bytes OK
+2020/04/27-00:35:41.755 3e4f Delete type=0 #4
+2020/04/27-00:38:29.708 3e4f Compacting 1@1 + 1@2 files
+2020/04/27-00:38:29.725 3e4f Generated table #8@1: 33 keys, 8441 bytes
+2020/04/27-00:38:29.725 3e4f Compacted 1@1 + 1@2 files => 8441 bytes
+2020/04/27-00:38:29.731 3e4f compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/04/27-00:38:29.732 3e4f Delete type=2 #5
+2020/04/27-00:38:29.732 3e4f Delete type=2 #7
