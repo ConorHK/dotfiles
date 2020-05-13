@@ -1,6 +1,0 @@
-2020/04/26-23:16:01.372 371c Reusing MANIFEST /home/conor/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
-2020/04/26-23:16:01.373 371c Recovering log #3
-2020/04/26-23:16:01.373 371c Reusing old log /home/conor/.config/chromium/Default/Local Storage/leveldb/000003.log 
-2020/04/27-00:30:20.966 3f5d Level-0 table #5: started
-2020/04/27-00:30:20.978 3f5d Level-0 table #5: 19217 bytes OK
-2020/04/27-00:30:20.986 3f5d Delete type=0 #3

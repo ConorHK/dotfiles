@@ -142,7 +142,7 @@ XF86AudioPlay
   playerctl play-pause
 
 {XF86AudioPrev, XF86AudioNext}
-  playerctl {prev,next}
+  playerctl {previous,next}
 
 XF86Search
   search
