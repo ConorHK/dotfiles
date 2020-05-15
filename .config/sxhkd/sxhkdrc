@@ -146,7 +146,9 @@ XF86AudioPlay
 
 XF86Search
   rofi -modi blocks -blocks-wrap /usr/bin/rofi-search -show blocks -eh 4
+
 #----- Application Specific -----#
+# firefox
 super + shift + f
 	$BROWSER
 
