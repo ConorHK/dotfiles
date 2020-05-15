@@ -1,0 +1,18 @@
+#!/bin/bash
+CHECK=(`xdotool search --name "kitty-scratchpad"`)
+RECHECK=(`wmctrl -l | grep kitty-scratchpad`)
+altern_scratch() {
+  if [ "$RECHECK" == "" ]; then
+    echo 1
+	   xdotool search --class "kitty-scratchpad" windowmap
+  else
+    echo 2
+	   xdotool search --class "kitty-scratchpad" windowunmap
+  fi
+}
+
+if [ "$CHECK" == "" ]; then
+    kitty --class kitty-scratchpad
+else
+     $(altern_scratch)
+fi

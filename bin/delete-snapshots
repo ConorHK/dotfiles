@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+	echo 'Must run as root/with sudo.'
+	exit
+fi
+
+for n in `seq $1 $2`
+do
+	snapper delete $n
+done
