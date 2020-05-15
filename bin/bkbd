@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# for updating virtual keyboard to gb layout
-setxkbmap -device `xinput list | grep "Virtual core XTEST keyboard" | sed -e 's/.\+=\([0-9]\+\).\+/\1/'` gb

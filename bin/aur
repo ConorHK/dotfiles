@@ -1,3 +1,0 @@
-#!/bin/bash
-
-git clone https://aur.archlinux.org/$1 ~/repositories/$1 && cd ~/repositories/$1

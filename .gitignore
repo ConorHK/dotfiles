@@ -1,6 +1,0 @@
-.config/zsh/.*
-.local/share/z
-.config/.oh-my-zsh
-.config/spotify
-.config/Signal
-.config/pulse
