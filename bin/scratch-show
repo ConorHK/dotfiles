@@ -13,7 +13,7 @@ else
   done|sort -n|head -n1|cut -d" " -f 5);\
   if [ -n "$i" ];then \
     xprop -id $i -remove _SCRATCH;\
-    bspc rule -a \* state=floating center=on --one-shot;\
+    bspc rule -a \* --one-shot;\
     xdotool windowmap $i;\
     bspc node -f $i;\
   fi;\
