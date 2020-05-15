@@ -21,8 +21,10 @@ bspc config urgent_border_color   "#ffdb9e"
 bspc config pointer_modifier super
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
-bspc config pointer_acstion3 resize_corner
+bspc config pointer_action3 resize_corner
 bspc config click_to_focus none
 bspc config focus_follows_pointer true
 
 bspc config top_padding 0
+
+bspc rule -a Blueman-manager state=floating
