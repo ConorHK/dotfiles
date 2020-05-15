@@ -1,5 +1,0 @@
-2020/05/08-19:11:34.187 1a67 Reusing MANIFEST /home/conor/repositories/dotfiles/.config/Signal/IndexedDB/file__0.indexeddb.leveldb/MANIFEST-000001
-2020/05/08-19:11:34.369 1a6d Level-0 table #5: started
-2020/05/08-19:11:34.380 1a6d Level-0 table #5: 496 bytes OK
-2020/05/08-19:11:34.392 1a6d Delete type=0 #3
-2020/05/08-19:11:34.392 1a6d Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
