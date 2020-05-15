@@ -1,31 +1,34 @@
 " Cleanup
-set undodir=$XDG_DATA_HOME/vim/undo
-set directory=$XDG_DATA_HOME/vim/swap
-set backupdir=$XDG_DATA_HOME/vim/backup
-set viewdir=$XDG_DATA_HOME/vim/view
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-set viminfo+=n$XDG_DATA_HOME/vim/viminfo
+"set undodir=$XDG_DATA_HOME/vim/undo
+"set directory=$XDG_DATA_HOME/vim/swap
+"set backupdir=$XDG_DATA_HOME/vim/backup
+"set viewdir=$XDG_DATA_HOME/vim/view
+"set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+"set viminfo+=n$XDG_DATA_HOME/vim/viminfo
 
 " Plugins
-  call plug#begin('$XDG_CACHE_HOME/.vim/plugged')
+  call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
     Plug 'lervag/vimtex'
     Plug 'junegunn/goyo.vim'
     Plug 'tpope/vim-commentary'
     Plug 'sbdchd/neoformat'
     Plug 'xuhdev/vim-latex-live-preview',{'for':'tex'}
     Plug 'junegunn/limelight.vim'
-    Plug 'tomasiser/vim-code-dark'
     Plug 'takac/vim-hardtime'
     Plug 'sirver/ultisnips'
+    Plug 'tpope/vim-surround'
+    Plug 'mhinz/vim-startify'
+    Plug 'tpope/vim-sensible'
+    Plug 'jacoborus/tender.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
   call plug#end()
 
 " encoding
-set encoding=UTF-8
+  set encoding=UTF-8
+
 " Colourscheme
-  colorscheme codedark
-  set t_Co=256
-  set t_ut=
-  colorscheme codedark
+  colorscheme tender
   set noshowmode
   set noshowcmd
   set shortmess+=F
@@ -45,15 +48,15 @@ set encoding=UTF-8
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
   let g:limelight_conceal_ctermfg='gray'
-"Splits open at bottom and right
+
+" Splits open at bottom and right
   set splitbelow splitright
 
 " Spellcheck
   autocmd FileType text,markdown setlocal spell
   set spelllang=en_gb
-  set spellfile=$HOME/.config/vim/spell/en.utf-8.add
   inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-" Don't automaticall collapse markdown
+" Don't automatically collapse markdown
   set conceallevel=0
 
 " Automatically re-read file if a change was made outside vim
@@ -140,27 +143,30 @@ set encoding=UTF-8
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Save files as sudo on files that require root permission
-  cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+  cmap w!! w !sudo tee > /dev/null %
 
 " Delete all trailing whitespace on save
   autocmd BufWritePre * %s/\s\+$//e
 
 " LaTeX Plug
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
-let g:livepreview_previewer = 'zathura'
+  let g:tex_flavor='latex'
+  let g:vimtex_view_method='zathura'
+  let g:vimtex_quickfix_mode=0
+  set conceallevel=1
+  let g:tex_conceal='abdmg'
+  let g:livepreview_previewer = 'zathura'
 
 " Hard-time
 "let g:hardtime_default_on = 1
 
 " Ultisnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/vim/ultisnips")
-if has('fname_case')
-    let g:UltiSnipsSnippetDirectories = ["UltiSnips", "ultisnips"]
-endif
+  let g:UltiSnipsExpandTrigger = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+  let g:UltiSnipsSnippetsDir = expand("$XDG_CONFIG_HOME/nvim/ultisnips")
+  if has('fname_case')
+      let g:UltiSnipsSnippetDirectories = ["UltiSnips", "ultisnips"]
+  endif
+
+" Command mapping :Q because I always end up doing that
+  command Q q
