@@ -33,8 +33,8 @@ window {
     border:           5;
     font:             "sans-serif 12";
     fullscreen:       false;
-    padding:          24;
-    width:            500;
+    padding:          20;
+    width:            400;
 }
 
 mainbox {
@@ -59,7 +59,7 @@ listview {
     spacing:      2px;
     fixed-height: 0;
     border:       1px dash 0px 0px;
-    lines:        5;
+    lines:        4;
 }
 
 element {
