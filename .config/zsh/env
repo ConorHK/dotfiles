@@ -5,7 +5,8 @@
 export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Default programs:
-export EDITOR="vim"
+export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
 export TERMINAL="alacritty"
 export TERM="alacritty"
 export BROWSER="firefox"
