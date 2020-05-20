@@ -5,3 +5,4 @@
 .config/spotify
 .config/Signal
 .config/pulse
+.config/bashtop/error.log
