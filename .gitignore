@@ -6,3 +6,5 @@
 .config/Signal
 .config/pulse
 .config/bashtop/error.log
+.config/dconf/user
+.config/chromium
