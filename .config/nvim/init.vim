@@ -178,7 +178,7 @@
   let g:livepreview_previewer = 'zathura'
 
 " Colourscheme
-  colorscheme gruvbox
+  colorscheme tender
   set noshowmode
   set noshowcmd
   set shortmess+=F
