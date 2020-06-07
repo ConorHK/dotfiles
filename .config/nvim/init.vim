@@ -12,29 +12,23 @@
 " Encoding
   set encoding=UTF-8
 
-" Colourscheme
-  colorscheme tender
-  set noshowmode
-  set noshowcmd
-  set shortmess+=F
-
-" Set Leader key
+" set leader key
   let mapleader=" "
   let maplocalleader=" "
 
-" Longer leader key timeout
+" longer leader key timeout
   set timeout timeoutlen=1500
 
-" Enable autocompletion
+" enable autocompletion
   set wildmode=longest,list,full
 
-" Goyo macro
-  map <leader>f :Goyo \| set linebreak<CR>
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
+" goyo macro
+  map <leader>f :goyo \| set linebreak<cr>
+  autocmd! user goyoenter limelight
+  autocmd! user goyoleave limelight!
   let g:limelight_conceal_ctermfg='gray'
 
-" Splits open at bottom and right
+" splits open at bottom and right
   set splitbelow splitright
 
 " Spellcheck
@@ -131,7 +125,15 @@
 " Command mapping :Q because I always end up doing that
   command Q q
 
+" Source PEP8 defaults for c and python - may override some settings here
+  source src/pep8.vim
+
 " ------- Plugins ------
+  if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
+    silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
   call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
     Plug 'lervag/vimtex'                                  " Latex support
     Plug 'junegunn/goyo.vim'                              " No distractions mode
@@ -143,7 +145,6 @@
     Plug 'sirver/ultisnips'                               " Snippet tool
     Plug 'tpope/vim-surround'                             " Changes surrounding tags: use cs/ds
     Plug 'mhinz/vim-startify'                             " Adds start screen
-    Plug 'tpope/vim-sensible'                             " Tim Pope's sensible settings - probably overwritten
     Plug 'jacoborus/tender.vim'                           " Tender theme
     Plug 'tpope/vim-fugitive'                             " Git commands
     Plug 'airblade/vim-gitgutter'                         " Shows whats changed in repo
@@ -175,3 +176,9 @@
   set conceallevel=1
   let g:tex_conceal='abdmg'
   let g:livepreview_previewer = 'zathura'
+
+" Colourscheme
+  colorscheme gruvbox
+  set noshowmode
+  set noshowcmd
+  set shortmess+=F
