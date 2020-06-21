@@ -8,3 +8,4 @@
 .config/bashtop/error.log
 .config/chromium
 .config/dconf/user
+.config/nvim/.netrwhist
