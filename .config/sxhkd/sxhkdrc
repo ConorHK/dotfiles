@@ -48,7 +48,7 @@ super + {t,shift + t,s,f}
 
 # toggle polybar
 super + p
-  polybar-msg cmd toggle
+  hideIt.sh --name "polybar-main_eDP-1" --toggle
 
 # set the node flags
 super + ctrl + {m,x,y,z}
