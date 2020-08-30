@@ -13,12 +13,13 @@
     gruvbox-dark-yellow-dark:  #d79921;
     gruvbox-dark-yellow-light: #fabd2f;
     gruvbox-dark-gray:         #a89984;
+    background-green:          #6f9d76;
 
     /* Theme colors */
     background:                  @gruvbox-dark-bg0;
     background-color:            @background;
     foreground:                  @gruvbox-dark-fg1;
-    border-color:                @gruvbox-dark-gray;
+    border-color:                @background-green;
     separatorcolor:              @border-color;
     scrollbar-handle:            @border-color;
 
@@ -46,7 +47,7 @@
 
 window {
     background-color: @background;
-    border:           5;
+    border:           3;
     font:             "sans-serif 12";
     fullscreen:       false;
     padding:          20;
