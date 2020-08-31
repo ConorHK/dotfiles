@@ -1,7 +1,8 @@
 #!/bin/sh
 
 $HOME/.config/polybar/launch.sh
-xsetroot -solid "#6f9d76"
+hsetroot -solid "#6f9d76"
+picom -b
 gebaard -b
 setxkbmap -option "caps:swapescape"
 

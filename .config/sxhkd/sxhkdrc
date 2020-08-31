@@ -161,8 +161,8 @@ Print
 
 #----- Scratchpad -----#
 # send to scratch
-super + minus
+F7
   scratch-hide
 # return from scratch
-super + shift + minus
+shift + F7
   scratch-show
