@@ -56,7 +56,7 @@ super + ctrl + {m,x,y,z}
 
 # Lock screen
 super + x
-  betterlockscreen -l
+  betterlockscreen -l -t "silly goose" --off 8
 
 #
 # focus/swap
