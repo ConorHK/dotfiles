@@ -9,3 +9,4 @@
 .config/chromium
 .config/dconf/user
 .config/nvim/.netrwhist
+.config/zoomus.conf

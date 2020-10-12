@@ -1,28 +1,60 @@
 #!/bin/sh
 # Run by zsh on startup
 
-# Adds ~/bin to $PATH
+# local bin for scripts
+if [ ! -d "$HOME/bin/" ]; then
+  mkdir $HOME/bin/
+fi
 export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-# Default programs:
-export EDITOR="nvim"
-export SUDO_EDITOR="nvim"
-export TERMINAL="alacritty"
-export TERM="alacritty"
-export BROWSER="firefox"
-export READER="zathura"
+# add gems to path if exist
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$PATH:$(ruby -r rubygems -e 'puts Gem.user_dir')/bin"
+fi
+
+# default programs:
+if which nvim >/dev/null; then
+  export EDITOR="nvim"
+  export SUDO_EDITOR="nvim"
+else
+  export EDITOR="vim"
+  export SUDO_EDITOR="vim"
+fi
+if which alacritty >/dev/null; then
+  export TERMINAL="alacritty"
+  export TERM="alacritty"
+fi
+if which firefox >/dev/null; then
+  export BROWSER="firefox"
+  export MOZ_USE_OMTC=1 # stops screen tearing
+fi
+if which zathura >/dev/null; then
+  export READER="zathura"
+fi
 
 # $HOME Clean-up:
+if [ ! -d "$HOME/.config" ]; then
+  mkdir $HOME/.config
+fi
+if [ ! -d "$HOME/.cache" ]; then
+  mkdir $HOME/.config
+fi
+if [ ! -d "$HOME/.local/share" ]; then
+  mkdir -p $HOME/.local/share
+fi
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export LESSHISTFILE=-
-export GTK2_RC_FILES="$HOME/.config/gtk-2/gtkrc-2.0"
-export WGETRC="$HOME/.config/wget/wgetrc"
-export ZDOTDIR="$HOME/.config/zsh"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2/gtkrc-2.0"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export _Z_DATA="$XDG_DATA_HOME/z"
 
 # For vim
+if [ ! -d "$XDG_CACHE_HOME/vim/sessions" ]; then
+  mkdir -p $XDG_CACHE_HOME/vim/sessions
+fi
 export SESSIONS="$XDG_CACHE_HOME/vim/sessions"
