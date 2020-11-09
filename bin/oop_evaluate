@@ -4,6 +4,7 @@ RED="[91m"
 GREEN="[92m"
 RED_BOLD="[1;91m"
 GREEN_BOLD="[1;92m"
+DEFAULT="[0m"
 
 failed=false
 
@@ -41,11 +42,11 @@ if [ -f "$prefix/tests/all_tests.rb" ]; then
     echo "${GREEN}====================="
   fi
 else
-  echo "all_tests.rb not found, moving on" | indent
+  echo "${DEFAULT}all_tests.rb not found, moving on" | indent
 fi
 
 echo
-echo "Evaluating output difference..."
+echo "${DEFAULT}Evaluating output difference..."
 if [ -z "$is_test_directory" ]; then
   diff_outputs=$(ruby ./main.rb | (diff "$prefix/expected_output.txt" /dev/fd/4 ) 4<&0 )
 else
