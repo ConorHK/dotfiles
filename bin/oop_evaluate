@@ -20,7 +20,7 @@ fi
 
 echo "Evaluating unit tests, if present..."
 if [ -f "$prefix/tests/all_tests.rb" ]; then
-  echo "all_tests.rb found!"
+  echo "all_tests.rb found!" | indent
   echo
   test_output=$(ruby $prefix/tests/all_tests.rb | tee /dev/tty)
   test_output=$(echo $test_output | grep "passed" | sed 's/%.*//')
