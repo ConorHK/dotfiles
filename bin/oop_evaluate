@@ -1,5 +1,10 @@
 #!/bin/sh
 
+RED="[91m"
+GREEN="[92m"
+RED_BOLD="[1;91m"
+GREEN_BOLD="[1;92m"
+
 failed=false
 
 indent() { sed 's/^/ > /'; }
@@ -11,10 +16,10 @@ else
   prefix=".."
 fi
 
-if [[ ! -f $prefix/expected_output.txt ]]; then
+if [ ! -f $prefix/expected_output.txt ]; then
   echo
   echo "expected_output.txt missing: maybe rename one of the following?"
-  ls | grep ".txt" | indent
+  find $prefix/ -name "*.txt" | indent
   exit 1
 fi
 
@@ -26,42 +31,44 @@ if [ -f "$prefix/tests/all_tests.rb" ]; then
   test_output=$(echo "$test_output" | grep "passed" | sed 's/%.*//')
   echo
   if [ "$test_output" != '100' ]; then
-    echo -e "\e[31m================================"
-    echo -e "\e[91mFailed: One or more tests failed"
-    echo -e "\e[31m================================"
+    echo "${RED}================================"
+    echo "${RED}One or more tests failed"
+    echo "${RED}================================"
     failed=true
   else
-    echo -e "\e[32m====================="
-    echo -e "\e[92mSuccess: Tests passed"
-    echo -e "\e[32m====================="
+    echo "${GREEN}====================="
+    echo "${GREEN}Success: Tests passed"
+    echo "${GREEN}====================="
   fi
 else
-  echo -e "all_tests.rb not found, moving on" | indent
+  echo "all_tests.rb not found, moving on" | indent
 fi
 
 echo
-echo -e "\e[39mEvaluating output difference..."
-if [ -z $is_test_directory ]; then
-  diff_outputs=$(ruby ./main.rb | ( cat $prefix/expected_output.txt | (diff /dev/fd/3 /dev/fd/4 ) 4<&0 ) 3<&0)
+echo "Evaluating output difference..."
+if [ -z "$is_test_directory" ]; then
+  diff_outputs=$(ruby ./main.rb | (diff "$prefix/expected_output.txt" /dev/fd/4 ) 4<&0 )
 else
-  diff_outputs=$(cd ../ && ruby ./main.rb | ( cat ./expected_output.txt | (diff /dev/fd/3 /dev/fd/4 ) 4<&0 ) 3<&0)
+  diff_outputs=$(cd ../ && ruby ./main.rb | (diff "./expected_output.txt" /dev/fd/4 ) 4<&0 )
 fi
-if [ ! -z "$diff_outputs" ]; then
-  echo -e "\e[31m======================"
-  echo -e "\e[91mFailed: invalid output"
-  echo -e "\e[91m$diff_outputs"
-  echo -e "\e[31m======================"
+if [ -n "$diff_outputs" ]; then
+  echo "${RED}======================"
+  echo "${RED}Failed: invalid output"
+  echo "${RED}$diff_outputs"
+  echo "${RED}======================"
   failed=true
 else
-  echo -e "\e[32m====================="
-  echo -e "\e[92mSuccess: 0 difference"
-  echo -e "\e[32m====================="
+  echo "${GREEN}====================="
+  echo "${GREEN}Success: 0 difference"
+  echo "${GREEN}====================="
 fi
 
 if [ "$failed" = true ]; then
   echo
-  echo -e "\e[1;91mEVALUATION FAIL"
+  echo "${RED_BOLD}EVALUATION FAIL"
+  exit 1
 else
   echo
-  echo -e "\e[1;92mEVALUATION SUCCESS"
+  echo "${GREEN_BOLD}EVALUATION SUCCESS"
+  exit 0
 fi
