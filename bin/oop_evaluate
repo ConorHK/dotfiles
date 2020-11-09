@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 failed=false
 
@@ -23,9 +23,9 @@ if [ -f "$prefix/tests/all_tests.rb" ]; then
   echo "all_tests.rb found!" | indent
   echo
   test_output=$(ruby $prefix/tests/all_tests.rb | tee /dev/tty)
-  test_output=$(echo $test_output | grep "passed" | sed 's/%.*//')
+  test_output=$(echo "$test_output" | grep "passed" | sed 's/%.*//')
   echo
-  if [ $test_output != '100' ]; then
+  if [ "$test_output" != '100' ]; then
     echo -e "\e[31m================================"
     echo -e "\e[91mFailed: One or more tests failed"
     echo -e "\e[31m================================"
@@ -40,14 +40,13 @@ else
 fi
 
 echo
-echo "\e[39mEvaluating output difference..."
+echo -e "\e[39mEvaluating output difference..."
 if [ -z $is_test_directory ]; then
-  diff_outputs=$(diff <(ruby ./main.rb) "$prefix/expected_output.txt")
+  diff_outputs=$(ruby ./main.rb | ( cat $prefix/expected_output.txt | (diff /dev/fd/3 /dev/fd/4 ) 4<&0 ) 3<&0)
 else
-  diff_outputs=$(diff <(cd ../ && ruby ./main.rb) "$prefix/expected_output.txt")
+  diff_outputs=$(cd ../ && ruby ./main.rb | ( cat ./expected_output.txt | (diff /dev/fd/3 /dev/fd/4 ) 4<&0 ) 3<&0)
 fi
-
-if [ ! -z $diff_outputs ]; then
+if [ ! -z "$diff_outputs" ]; then
   echo -e "\e[31m======================"
   echo -e "\e[91mFailed: invalid output"
   echo -e "\e[91m$diff_outputs"
