@@ -1,0 +1,34 @@
+#!/bin/sh
+
+
+SUFFIX='.vim'
+# Flags
+LIST_DIRECTORY=false
+SESSION_NAME=""
+
+while getopts 'r:l' c
+do
+  case $c in
+    r) REMOVE_SESSION=$OPTARG ;;
+    l) LIST_DIRECTORY=true ;;
+  esac
+done
+shift "$(($OPTIND -1))"
+
+if $LIST_DIRECTORY ; then
+  ls $SESSIONS
+fi
+echo "$REMOVE_SESSION"
+if [ ! -z $REMOVE_SESSION ]
+then
+  read -p "Are you sure you want to remove $SESSIONS/$REMOVE_SESSION ? " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    rm $SESSIONS/$REMOVE_SESSION$SUFFIX && echo "> $REMOVE_SESSION deleted."
+  fi
+fi
+if [ ! -z $* ]
+then
+  nvim -S $SESSIONS/$*$SUFFIX
+fi

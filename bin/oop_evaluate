@@ -1,0 +1,68 @@
+#!/bin/zsh
+
+failed=false
+
+indent() { sed 's/^/ > /'; }
+
+is_test_directory=$(pwd | grep tests)
+if [ -z "$is_test_directory" ]; then
+  prefix="."
+else
+  prefix=".."
+fi
+
+if [[ ! -f $prefix/expected_output.txt ]]; then
+  echo
+  echo "expected_output.txt missing: maybe rename one of the following?"
+  ls | grep ".txt" | indent
+  exit 1
+fi
+
+echo "Evaluating unit tests, if present..."
+if [ -f "$prefix/tests/all_tests.rb" ]; then
+  echo "all_tests.rb found!"
+  echo
+  test_output=$(ruby $prefix/tests/all_tests.rb | tee /dev/tty)
+  test_output=$(echo $test_output | grep "passed" | sed 's/%.*//')
+  echo
+  if [ $test_output != '100' ]; then
+    echo -e "\e[31m================================"
+    echo -e "\e[91mFailed: One or more tests failed"
+    echo -e "\e[31m================================"
+    failed=true
+  else
+    echo -e "\e[32m====================="
+    echo -e "\e[92mSuccess: Tests passed"
+    echo -e "\e[32m====================="
+  fi
+else
+  echo -e "all_tests.rb not found, moving on" | indent
+fi
+
+echo
+echo "\e[39mEvaluating output difference..."
+if [ -z $is_test_directory ]; then
+  diff_outputs=$(diff <(ruby ./main.rb) "$prefix/expected_output.txt")
+else
+  diff_outputs=$(diff <(cd ../ && ruby ./main.rb) "$prefix/expected_output.txt")
+fi
+
+if [ ! -z $diff_outputs ]; then
+  echo -e "\e[31m======================"
+  echo -e "\e[91mFailed: invalid output"
+  echo -e "\e[91m$diff_outputs"
+  echo -e "\e[31m======================"
+  failed=true
+else
+  echo -e "\e[32m====================="
+  echo -e "\e[92mSuccess: 0 difference"
+  echo -e "\e[32m====================="
+fi
+
+if [ "$failed" = true ]; then
+  echo
+  echo -e "\e[1;91mEVALUATION FAIL"
+else
+  echo
+  echo -e "\e[1;92mEVALUATION SUCCESS"
+fi
