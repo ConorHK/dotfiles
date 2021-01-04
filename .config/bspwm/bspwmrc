@@ -3,10 +3,7 @@
 $HOME/.config/polybar/launch.sh
 hsetroot -solid "#6f9d76"
 picom -b
-gebaard -b
 setxkbmap -option "caps:swapescape"
-
-bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 bspc config border_width        30
 bspc config window_gap          5
@@ -31,3 +28,11 @@ bspc config top_padding 30
 
 bspc rule -a Blueman-manager state=floating
 bspc rule -a Zoom state=floating
+
+if [[ $(hostname) = pc ]]; then
+  bspc monitor HDMI-1 -d 1 2 3 4 5
+  bspc monitor DP-1 -d 6 7 8 9 0
+else # laptop
+  bspc monitor -d 1 2 3 4 5 6 7 8 9
+  gebaard -b
+fi

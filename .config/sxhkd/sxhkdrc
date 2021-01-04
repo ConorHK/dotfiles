@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	$TERMINAL
+	$TERMINAL --config-file $HOME/.config/alacritty/alacritty-$(hostname).yml
 
 # program launcher
 super + @space
@@ -48,7 +48,7 @@ super + {t,shift + t,s,f}
 
 # toggle polybar
 super + p
-  hideIt.sh --name "polybar-main_eDP-1" --toggle
+  if [[ "$(hostname)" = pc ]]; then hideIt.sh --name '^polybar-pc_DP-1$' --toggle; else hideIt.sh --name "polybar-laptop-1" --toggle; fi
 
 # set the node flags
 super + ctrl + {m,x,y,z}
