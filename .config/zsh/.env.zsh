@@ -9,10 +9,14 @@ export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 # Default programs:
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
-export TERMINAL="alacritty --config-file $ALACRITTY_CONFIG/alacritt"
+export TERMINAL="alacritty"
 export TERM="alacritty"
 export BROWSER="firefox"
 export READER="zathura"
+
+# Locations
+export ENV_FILE="$(pwd)/.env.zsh"
+export ALIASES="$(pwd)/.aliases.zsh"
 
 # $HOME Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
