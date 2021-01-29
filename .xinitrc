@@ -9,4 +9,4 @@ xrdb $HOME/.Xresources &
 setxkbmap gb &
 unclutter &
 command -v udiskie &> /dev/null && udiskie &
-exec dbus-launch --sh-syntax --exit-with-session bspwm -c $HOME/.config/bspwm/bspwmrc
+exec bspwm

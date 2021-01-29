@@ -5,8 +5,8 @@ source $HOME/.config/zsh/.env.zsh
 source $ZDOTDIR/.aliases.zsh
 
 # Source functions
-# fpath=($ZDOTDIR/functions $fpath);
-# autoload -U $fpath[1]/*(.:t)
+ fpath=($ZDOTDIR/functions $fpath);
+ autoload -U $fpath[1]/*(.:t)
 
 # set title on terminal spawn
 precmd () {
