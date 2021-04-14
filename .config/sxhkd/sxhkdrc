@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	$TERMINAL
+	$TERMINAL --config-file $HOME/.config/alacritty/alacritty-$(hostname).yml
 
 # program launcher
 super + @space
@@ -48,7 +48,7 @@ super + {t,shift + t,s,f}
 
 # toggle polybar
 super + p
-  hideIt.sh --name "polybar-main_eDP-1" --toggle
+  if [[ "$(hostname)" = pc ]]; then hideIt.sh --name '^polybar-pc_DP-1$' --toggle; else hideIt.sh --name "polybar-laptop-1" --toggle; fi
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -96,6 +96,10 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+# focus next monitor
+super + n
+  bspc monitor --focus {prev,next}
+
 #
 # preselect
 #
@@ -119,6 +123,10 @@ super + ctrl + shift + space
 #
 # move/resize
 #
+
+# Move window direction
+super + shift + {h,j,k,l}
+  bspc node -s {west,south,north,east}
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
