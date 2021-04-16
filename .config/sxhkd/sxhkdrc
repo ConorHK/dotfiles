@@ -48,7 +48,7 @@ super + {t,shift + t,s,f}
 
 # toggle polybar
 super + p
-  if [[ "$(hostname)" = pc ]]; then hideIt.sh --name '^polybar-pc_DP-1$' --toggle; else hideIt.sh --name "polybar-laptop-1" --toggle; fi
+  if [[ "$(hostname)" = pc ]]; then hideIt.sh --name '^polybar-pc_DP-1$' --toggle; else hideIt.sh --name "^polybar-laptop_eDP-1" --toggle; fi
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -157,7 +157,7 @@ XF86AudioPlay
   playerctl {previous,next}
 
 XF86Search
-  rofi -modi blocks -blocks-wrap /usr/bin/rofi-search -show blocks -eh 4
+  rofi-search
 
 #----- Application Specific -----#
 # firefox
