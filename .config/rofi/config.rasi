@@ -19,7 +19,7 @@
     background:                  @gruvbox-dark-bg0;
     background-color:            @background;
     foreground:                  @gruvbox-dark-fg1;
-    border-color:                @background-green;
+    border-color:                @gruvbox-dark-red-light;
     separatorcolor:              @border-color;
     scrollbar-handle:            @border-color;
 

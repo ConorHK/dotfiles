@@ -12,5 +12,5 @@ if [ "$(hostname)" = pc ]; then
  sleep 1; hideIt.sh --name '^polybar-pc_DP-1$' --signal -d top &
 else
   polybar -c ~/.config/polybar/config.ini laptop &
-  sleep 1; hideIt.sh --name "polybar-laptop_eDP-1" --signal -d top &
+  # sleep 1; hideIt.sh --name "polybar-laptop_eDP-1" --signal -d top &
 fi

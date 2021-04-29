@@ -8,7 +8,7 @@ setxkbmap -option "caps:swapescape"
 gap=5
 PANEL_HEIGHT=30
 bspc config window_gap          $gap;
-bspc config top_padding         $PANEL_HEIGHT
+bspc config top_padding         $PANEL_HEIGHT - $gap
 bspc config left_padding        -$gap
 bspc config right_padding       -$gap
 bspc config bottom_padding      -$gap

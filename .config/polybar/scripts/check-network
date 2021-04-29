@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 count=0
-disconnected="睊"
-connected="直"
+disconnected=" 睊"
+connected=" 直"
 ID="$(ip link | awk '/state UP/ {print $2}')"
 
 while true; do
