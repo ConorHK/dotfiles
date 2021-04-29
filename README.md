@@ -5,7 +5,7 @@ Current Arch configuration files and scripts
 setup.sh moves all dotfiles to this local repository and then makes symlinks in $HOME. Note: script directories are currently hardcoded.
 
 ## Image:
-![Example of dotfiles](https://raw.githubusercontent.com/ConorHK/dotfiles/master/images/gruvbox.png)
+![Example of dotfiles](https://raw.githubusercontent.com/ConorHK/dotfiles/gruvbox/images/gruvbox.png)
 
 ## Cool features:
 * Gebaard for touchpad gestures:
