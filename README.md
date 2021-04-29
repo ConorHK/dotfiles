@@ -9,9 +9,10 @@ setup.sh moves all dotfiles to this local repository and then makes symlinks in 
 
 ## Cool features:
 * Gebaard for touchpad gestures:
-***** 3 fingers up for fullscreen
-** 4 fingers up to hide window
-** 3 fingers down for tile
+  * 3 fingers up for fullscreen
+  * 4 fingers up to hide window
+  * 3 fingers down for tile
 * Rofi module for browser agnostic google search
 * Custom polybar modules for wifi and audio
 * Vim scripts for easy-access sessions
+* Laptop/Desktop compatability
