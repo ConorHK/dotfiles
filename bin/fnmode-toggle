@@ -1,0 +1,5 @@
+#!/bin/sh
+
+state=$(cat /sys/module/hid_apple/parameters/fnmode)
+
+[[ $state -eq 1 ]] && echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode || echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode
