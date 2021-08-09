@@ -4,7 +4,7 @@
 hostname=$(hostname)
 
 # Adds ~/bin to $PATH
-export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):/home/conor/.local/bin"
 
 # Default programs:
 export EDITOR="nvim"
