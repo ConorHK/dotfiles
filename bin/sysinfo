@@ -28,15 +28,15 @@ EMPTY=┄
 
 name=$USER
 host=$(uname -n)
-battery=/sys/class/power_supply/BAT1
+battery=/sys/class/power_supply/BAT0
 distro="$(cat /etc/os-release | grep NAME -m 1 | sed 's/NAME=//g' | sed 's/\"//g')"
 kernel=$(uname -r | sed 's/ARCH/0x0/')
-pkgs=$(paru -Qqs | wc -l)
+pkgs=$(pacman -Qqs | wc -l)
 colors='mutiny'
 font='goha'
 wm="bspwm"
 shell=$(basename $(printenv SHELL))
-term="st"
+term="alacritty"
 uptm=$(uptime -p | sed -e 's/hour/hr/' -e 's/hours/hrs/' -e 's/minutes/mins/' -e 's/minute/min/' -e 's/up //')
 
 #Cleanup first
@@ -67,8 +67,8 @@ printf "%s%b" "$PADC" "$OUTT"
 printf "\n\n"
 
 # greetings
-printf "%s%b" "$PADC" "        hello $RED$BLD$name$RST\n"
-printf "%s%b" "$PADC" "       welcome to $GRN$BLD$host$RST\n"
+printf "%s%b" "$PADC" "           hello $RED$BLD$name$RST\n"
+printf "%s%b" "$PADC" "       welcome to your $GRN$BLD$host$RST\n"
 printf "%s%b" "$PADC" "i've been awake for $CYN$BLD$uptm$RST\n\n"
 
 # environment
