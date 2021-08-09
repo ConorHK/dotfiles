@@ -29,14 +29,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob nomatch
 unsetopt beep
-bindkey -v
 
 # ignore case in directory/file auto-completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 
 # key bindings
-bindkey -e
+bindkey -v
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^[[H' beginning-of-line

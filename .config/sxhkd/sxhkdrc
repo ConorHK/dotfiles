@@ -142,10 +142,10 @@ super + {Left,Down,Up,Right}
 
 #----- Media Keys -----#
 {XF86AudioRaiseVolume,XF86AudioLowerVolume}
-  pulseaudio-ctl {up,down}
+  if [[ "$(hostname)" = pc ]]; then audio {volume-up,volume-down}; else pulseaudio-ctl {up,down}; fi
 
 XF86AudioMute
-  pulseaudio-ctl mute
+  if [[ "$(hostname)" = pc ]]; then audio toggle; else pulseaudio-ctl mute; fi
 
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
   brightnessctl s 20%{+,-}
@@ -159,18 +159,31 @@ XF86AudioPlay
 XF86Search
   rofi-search
 
+F12
+  audio swap-output
+
+Next
+  audio swap-output
+
 #----- Application Specific -----#
 # firefox
 super + shift + f
 	$BROWSER
 
 Print
-  flameshot gui -p $HOME/pics/screenshots
+  flameshot gui -p $HOME/media/screenshots
+Prior
+  flameshot gui -p $HOME/media/screenshots
+
 
 #----- Scratchpad -----#
 # send to scratch
 F7
   scratch-hide
+End
+  scratch-hide
 # return from scratch
 shift + F7
+  scratch-show
+shift + End
   scratch-show

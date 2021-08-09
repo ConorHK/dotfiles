@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+  audio_status=$(audio status)
+  [[ "$audio_status" == "MUTED" ]] && echo "婢 $audio_status" || echo "墳 $audio_status"
+done
