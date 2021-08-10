@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Launch Rofi
-MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System' \
+MENU="$(rofi -no-lazy-grab -dmenu \
 -hide-scrollbar true \
 -bw 0 \
 -lines 4 \

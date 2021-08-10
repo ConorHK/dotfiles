@@ -1,8 +1,13 @@
+window:
+  padding:
+   x: 10
+   y: 5
+
 font:
   normal:
-    family: Misc Termsynu
+    family: GohuGohuFont
     style:  Regular
-  size: 5
+  size: 5.5
   offset:
    x: 0
    y: 0
