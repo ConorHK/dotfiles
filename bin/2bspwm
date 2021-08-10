@@ -22,22 +22,24 @@ border_width_out_normal=$(( (border_width_current/2) + (border_width_current%2) 
 border_width_in_focused=$border_width_in_normal
 border_width_out_focused=$border_width_out_normal
 
-border_color_in_normal=3f3639
 border_color_out_normal=171717
-border_color_in_focused=3f3639
 border_color_out_focused=807b64 
+border_color_in_normal=3f3639
+border_color_in_focused=3f3639
+
 
 _chwb2() {
     colorType=$1
     shift
     _getVal() {
-      eval echo \$${1}_${colorType}
+      eval echo "\$${1}_${colorType}"
     }
 
   [ "$width_normal" = "$width_focused" ] || \
 	echo "$@" | sed 's/ /\n/g' | xargs -I{} bspc config -n {} border_width $(_getVal width)
 
-  chwb2 -I $(_getVal border_color_in) -O $(_getVal border_color_out) -i $(_getVal border_width_in) -o $(_getVal border_width_out) $@ 2>/dev/null
+    chwb2 -I $(_getVal border_color_in) -O $(_getVal border_color_out) -i $(_getVal border_width_in) -o $(_getVal border_width_out) $@ 2>/dev/null
+
 }
 
 width_normal=$((border_width_in_normal+border_width_out_normal))
@@ -48,6 +50,12 @@ _chwb2 normal $(bspwindows inactive)
 _chwb2 focused $(bspwindows)
 
 bspc subscribe node_state node_geometry node_focus | while read msg; do
+  if batt > /dev/null 2>&1 ; then
+    bspc config focused_border_color "#3f3639"
+  else
+    bspc config focused_border_color "#FF0000"
+    continue
+  fi
     _chwb2 normal $(bspwindows inactive)
     _chwb2 focused $(bspwindows)
 done

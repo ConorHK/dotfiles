@@ -1,7 +1,9 @@
 #!/bin/bash
 
+exit_code=0
 capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 status=$(cat /sys/class/power_supply/BAT0/status)
 
-[ "$capacity" -le 20 ] && [ "$status" = "Discharging" ] && warn="Warning: "
-printf "%s\t%s%s%%\n" "$status" "$warn" "$capacity"
+[ "$capacity" -le  15 ] && [ "$status" = "Discharging" ] && warn="Warning: " && exit_code=1
+printf "%s%s %s%%\n" "$warn" "$status" "$capacity"
+exit $exit_code

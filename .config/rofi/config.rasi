@@ -19,7 +19,7 @@
     background:                  @gruvbox-dark-bg0;
     background-color:            @background;
     foreground:                  @gruvbox-dark-fg1;
-    border-color:                #807b64;
+    border-color:                @border;
     separatorcolor:              @border-color;
     scrollbar-handle:            @border-color;
 
@@ -48,7 +48,7 @@
 window {
     background-color: @background;
     border:           3;
-    font:             "sans-serif 12";
+    font:             "monospace 12";
     fullscreen:       false;
     padding:          20;
     width:            400;

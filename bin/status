@@ -1,0 +1,17 @@
+#!/bin/bash
+
+battery=$(batt)
+network_status=$(check-network)
+network=$(ssid)
+date=$(date)
+# Launch Rofi
+rofi -no-lazy-grab -sep "|" -dmenu  \
+-hide-scrollbar true \
+-bw 0 \
+-lines 4 \
+-line-padding 10 \
+-padding 20 \
+-width 15 \
+-columns 1 \
+-color-enabled true \
+<<<" $battery |$network_status $network |$date"

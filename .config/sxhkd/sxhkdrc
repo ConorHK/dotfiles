@@ -10,6 +10,10 @@ super + Return
 super + @space
 	rofi -show drun
 
+# status
+super + z
+	status
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -56,7 +60,7 @@ super + ctrl + {m,x,y,z}
 
 # Lock screen
 super + x
-  betterlockscreen -l -t "silly goose" --off 8
+  GLITCHICON=$HOME/media/misc/lock.png glitchlock
 
 #
 # focus/swap

@@ -6,8 +6,7 @@ hostname=$(hostname)
 hashwall -f '#131313' -b '#1e1b1c' -s 12
 sxhkd &
 xsetroot -cursor_name left_ptr &
-xrdb $HOME/.Xresources &
-setxkbmap us && setxkbmap -option "caps:swapescape"
+[[ "$hostname" =~ pc ]] && setxkbmap us  || setxkbmap gb && setxkbmap -option "caps:swapescape"
 xset m 1/1 3
 unclutter &
 command -v udiskie &> /dev/null && udiskie &
