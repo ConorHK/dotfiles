@@ -90,7 +90,7 @@ window:
 # Font configuration
 font:
   normal:
-    family: MiscTamsyn
+    family: GohuGohuFont
     style:  Regular
     # Font family
     #
@@ -104,15 +104,15 @@ font:
     #style: Regular
 
   # Bold font face
-  bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: MiscTamsyn
+  #bold:
+  #  # Font family
+  #  #
+  #  # If the bold family is not specified, it will fall back to the
+  #  # value specified for the normal font.
+  #  family: TamzenForPowerline
 
-    # The `style` can be specified to pick a specific face.
-    style: Bold
+  #  # The `style` can be specified to pick a specific face.
+  #  style: Bold
 
   # Bold italic font face
   #bold_italic:

@@ -49,3 +49,6 @@ bindkey '^[[B' history-beginning-search-forward
 # Load compinit
 autoload -Uz compinit
 compinit
+
+# Make cd work like pushd
+setopt auto_pushd

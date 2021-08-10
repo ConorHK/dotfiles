@@ -24,3 +24,12 @@
 .config/joplin-desktop/
 .config/joplin/
 .config/mimeapps.list
+.config/flameshot/flameshot.ini
+.config/Code - OSS/
+.config/JetBrains/
+.config/coc/
+.config/font-manager/
+.config/fontconfig/conf.d/
+.config/pavucontrol.ini
+.config/transmission-daemon/
+.config/transmission/
